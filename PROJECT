@@ -7,4 +7,14 @@ layout:
 - go.kubebuilder.io/v4-alpha
 projectName: conditions-array-play
 repo: github.com/roehrich-hpe/conditions-array-play
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: hpe.com
+  group: dino
+  kind: Bird
+  path: github.com/roehrich-hpe/conditions-array-play/api/v1alpha1
+  version: v1alpha1
 version: "3"

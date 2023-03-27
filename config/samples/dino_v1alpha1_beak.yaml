@@ -1,0 +1,12 @@
+apiVersion: dino.hpe.com/v1alpha1
+kind: Beak
+metadata:
+  labels:
+    app.kubernetes.io/name: beak
+    app.kubernetes.io/instance: beak-sample
+    app.kubernetes.io/part-of: conditions-array-play
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: conditions-array-play
+  name: beak-sample
+spec:
+  # TODO(user): Add fields here

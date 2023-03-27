@@ -1,4 +1,5 @@
 ## Append samples of your project ##
 resources:
 - dino_v1alpha1_bird.yaml
+- dino_v1alpha1_beak.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples

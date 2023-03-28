@@ -1,0 +1,59 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - dino.hpe.com
+  resources:
+  - beaks
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - dino.hpe.com
+  resources:
+  - beaks/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - dino.hpe.com
+  resources:
+  - beaks/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - dino.hpe.com
+  resources:
+  - birds
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - dino.hpe.com
+  resources:
+  - birds/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - dino.hpe.com
+  resources:
+  - birds/status
+  verbs:
+  - get
+  - patch
+  - update

@@ -20,6 +20,21 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
+const (
+	// Condition types used in []metav1.Conditions.  These are nouns.
+
+	// Indicates whether the Beak CR is available
+	BirdConditionBeakResource = "BeakResource"
+)
+
+const (
+	// Condition reasons used in []metav1.Conditions.  These are past-tense
+	// verbs containing the reason for the last transition.
+
+	// Indicates the resource was created
+	BirdConditionResourceCreated = "ResourceCreated"
+)
+
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
@@ -36,6 +51,16 @@ type BirdSpec struct {
 type BirdStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+
+	// NOTE: The following Condition build tags are from the example in:
+	//   k8s.io/apimachinery/pkg/api/meta/v1/types.go
+
+	// Conditions represents the observations of Bird's current state
+	// +patchMergeKey=type
+	// +patchStrategy=merge
+	// +listType=map
+	// +listMapKey=type
+	Conditions []metav1.Condition `json:"conditions,omitempty" patchStrategy:"merge" patchMergeKey:"type" protobuf:"bytes,1,rep,name=conditions"`
 }
 
 //+kubebuilder:object:root=true
